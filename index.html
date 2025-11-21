@@ -1,49 +1,151 @@
 <!DOCTYPE html>
 <html lang="zh-HK">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bosco's Reader</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="bosco.png">
+
+  <!-- Favicon 與字型 -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Plus+Jakarta+Sans:wght@500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="navbar">
-    <div class="nav-container">
-      <h1>Bosco's Reader</h1>
-      <button id="menuToggle">☰</button>
-      <nav id="mainNav" class="collapsed">
-        <a href="index.html">首頁</a>
-        <a href="category.html">分類</a>
-        <a href="search.html">搜索</a>
+  <!-- 頁面淡入轉場遮罩 -->
+  <div class="page-overlay"></div>
+
+  <!-- Sticky 導航 -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">
+        <img src="assets/logo.svg" alt="Bosco's Reader logo" class="brand-logo" />
+        <span class="brand-title">Bosco's Reader</span>
+      </a>
+      <nav class="nav">
+        <a href="#featured" class="nav-link">精選</a>
+        <a href="#latest" class="nav-link">最新</a>
+        <a href="#topics" class="nav-link">主題</a>
       </nav>
     </div>
   </header>
 
-  <main id="articleList">
-    <!-- 文章列表由 script.js 動態載入 -->
-  </main>
+  <!-- Hero 區塊 -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <h1 class="hero-title">探索為你精選的閱讀世界</h1>
+        <p class="hero-subtitle">輕亮主題、流暢動畫、互動細節，讓每一次閱讀都更美好。</p>
+        <div class="hero-actions">
+          <button class="btn primary" data-ripple>立即開始</button>
+          <a href="#featured" class="btn ghost" data-ripple>看看精選</a>
+        </div>
+      </div>
+      <div class="bookshelf" aria-hidden="true">
+        <!-- 書架以 CSS 製作，這裡留空容器即可 -->
+      </div>
+    </div>
+  </section>
 
-  <footer>
-    <p>© 2025 by SYY</p>
+  <!-- 精選卡片 -->
+  <section id="featured" class="section">
+    <div class="container">
+      <h2 class="section-title">本週精選</h2>
+      <div class="grid cards">
+        <article class="card reveal">
+          <div class="card-top">
+            <div class="badge">推薦</div>
+            <h3 class="card-title">以使用者為中心的介面設計</h3>
+          </div>
+          <p class="card-desc">從色彩、間距到互動細節，打造可讀性與美感兼具的 UI。</p>
+          <div class="card-actions">
+            <button class="btn secondary" data-ripple>閱讀</button>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-top">
+            <div class="badge">熱門</div>
+            <h3 class="card-title">流暢動畫的最佳實踐</h3>
+          </div>
+          <p class="card-desc">以小而精的動態提升質感，並兼顧效能與無障礙。</p>
+          <div class="card-actions">
+            <button class="btn secondary" data-ripple>閱讀</button>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-top">
+            <div class="badge">新刊</div>
+            <h3 class="card-title">JSON 驅動的內容工作流</h3>
+          </div>
+          <p class="card-desc">用資料驅動更新，讓網站維護更專注在內容而非重複操作。</p>
+          <div class="card-actions">
+            <button class="btn secondary" data-ripple>閱讀</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 最新更新 -->
+  <section id="latest" class="section alt">
+    <div class="container">
+      <h2 class="section-title">最新更新</h2>
+      <ul class="list reveal">
+        <li class="list-item">
+          <span class="dot"></span>
+          <div>
+            <div class="list-title">Bosco's-Reader 輕亮主題完成</div>
+            <div class="list-meta">UI 動畫、轉場、互動效果全面升級</div>
+          </div>
+        </li>
+        <li class="list-item">
+          <span class="dot"></span>
+          <div>
+            <div class="list-title">支援減少動態偏好</div>
+            <div class="list-meta">尊重使用者無障礙設定，動態自動降級</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 主題導覽 -->
+  <section id="topics" class="section">
+    <div class="container">
+      <h2 class="section-title">主題導覽</h2>
+      <div class="chips reveal">
+        <button class="chip" data-ripple>介面設計</button>
+        <button class="chip" data-ripple>互動動畫</button>
+        <button class="chip" data-ripple>工作流</button>
+        <button class="chip" data-ripple>效能優化</button>
+        <button class="chip" data-ripple>可維護性</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 頁腳 -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <span class="brand-title">Bosco's Reader</span>
+        <span class="sep">•</span>
+        <span>Made for reading with care.</span>
+      </div>
+      <div class="footer-right">
+        <a href="#" class="footer-link">關於</a>
+        <a href="#" class="footer-link">聯絡</a>
+        <a href="#" class="footer-link">版權</a>
+      </div>
+    </div>
   </footer>
 
   <script src="script.js"></script>
-  <script>
-    renderArticles();
-
-    // 高亮當前頁面
-    document.querySelectorAll("nav a").forEach(link => {
-      if (link.href === window.location.href) {
-        link.classList.add("active");
-      }
-    });
-
-    // 漢堡選單切換
-    document.getElementById("menuToggle").onclick = () => {
-      document.getElementById("mainNav").classList.toggle("collapsed");
-    };
-  </script>
 </body>
 </html>
